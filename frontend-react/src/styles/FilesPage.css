@@ -1,0 +1,21 @@
+/* 添加封面统计信息的样式 */
+.bili-cover-stat {
+  font-size: 0.7rem;
+  opacity: 0.9;
+}
+
+.bili-cover-stat i {
+  font-size: 0.7rem;
+}
+
+.bili-cover-stat:hover {
+  opacity: 1;
+}
+
+/* 确保日期正常显示 */
+.bili-pubdate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+} 

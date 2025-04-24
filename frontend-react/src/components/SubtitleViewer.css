@@ -1,0 +1,181 @@
+.subtitle-viewer-modal {
+  max-width: 90vw !important;
+}
+
+.subtitle-viewer-content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.subtitle-table-container {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin: -1rem;
+  padding: 0 1rem;
+}
+
+.subtitle-table {
+  border-collapse: collapse;
+}
+
+.subtitle-table th {
+  position: sticky;
+  top: 0;
+  background-color: #f8f9fa;
+  z-index: 1;
+  font-weight: 600;
+  color: #555;
+  border-bottom: 2px solid #ddd;
+}
+
+.subtitle-table tbody tr:hover {
+  background-color: var(--bilibili-light-pink) !important;
+}
+
+.subtitle-table td {
+  padding: 0.75rem 0.5rem;
+  vertical-align: middle;
+}
+
+/* 处理字幕文本溢出省略 */
+.subtitle-table td:last-child {
+  max-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 悬停时显示完整文本 */
+.subtitle-table tr:hover td:last-child {
+  white-space: normal;
+  overflow: visible;
+  max-width: none;
+}
+
+/* 时间列样式 */
+.subtitle-table td:nth-child(2),
+.subtitle-table td:nth-child(3) {
+  font-family: monospace;
+  color: #666;
+}
+
+/* 序号列样式 */
+.subtitle-table td:first-child {
+  color: #999;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* 调整滚动条样式 */
+.subtitle-table-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.subtitle-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.subtitle-table-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.subtitle-table-container::-webkit-scrollbar-thumb:hover {
+  background: #bbb;
+}
+
+.subtitle-error-container {
+  padding: 1rem;
+}
+
+.raw-content-textarea {
+  font-size: 0.85rem;
+  background-color: #f8f9fa;
+  border-color: #ddd;
+  resize: none;
+}
+
+.raw-content-textarea:focus {
+  box-shadow: none;
+  border-color: #ccc;
+}
+
+/* AI总结相关样式 */
+.ai-summary-container {
+  padding: 1rem;
+}
+
+.ai-summary-header {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.summary-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #00a1d6;
+  margin-bottom: 0.75rem;
+}
+
+.summary-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.75rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.key-point-item {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.point-importance {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.point-importance-high {
+  background-color: #ff5c7c;
+}
+
+.point-importance-medium {
+  background-color: #fbad41;
+}
+
+.point-importance-low {
+  background-color: #1eafb2;
+}
+
+.point-content {
+  flex: 1;
+}
+
+.point-timestamp {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.tech-term-item {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.full-summary-text {
+  line-height: 1.6;
+  white-space: pre-line;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  border-left: 3px solid #00a1d6;
+} 

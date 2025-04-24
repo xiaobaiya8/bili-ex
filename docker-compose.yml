@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  bili-ex:
+    build: .
+    container_name: bili-ex
+    ports:
+      - "9160:9160"  # 后端API端口
+#      - "5173:5173"  # 前端开发服务器端口
+    volumes:
+      - ./config:/app/backend/config # 修改为你的配置文件路径
+#      - ./frontend-react:/app/frontend-react
+    restart: unless-stopped
+    # 增加内存限制
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+    # 增加共享内存大小，对浏览器自动化很重要
+    shm_size: 2gb
+    # 设置为生产模式
+    environment:
+      - DEV_MODE=false

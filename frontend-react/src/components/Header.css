@@ -1,0 +1,155 @@
+/* B站风格导航栏样式 */
+.bili-navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+  height: 56px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  width: 100%;
+  z-index: 1030;
+}
+
+/* 品牌样式 */
+.bili-brand {
+  font-weight: bold;
+  color: var(--bilibili-pink) !important;
+  font-size: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.bili-brand:hover {
+  opacity: 0.85;
+  transform: scale(1.02);
+}
+
+.bili-brand i {
+  color: var(--bilibili-pink);
+}
+
+/* 导航链接样式 */
+.bili-nav-link {
+  color: var(--bilibili-black) !important;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.1rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.bili-nav-link:hover {
+  color: var(--bilibili-pink) !important;
+  background-color: var(--bilibili-light-pink);
+}
+
+.bili-nav-link.active {
+  color: var(--bilibili-pink) !important;
+  font-weight: 500;
+  background-color: var(--bilibili-light-pink);
+}
+
+.bili-nav-link i {
+  font-size: 1rem;
+}
+
+/* 登录状态样式 */
+.bili-login-status {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  color: var(--bilibili-pink);
+  font-weight: 500;
+}
+
+.not-logged-in {
+  color: #888;
+}
+
+/* 加载中动画 */
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  color: #888;
+}
+
+.spinner-text {
+  margin-right: 4px;
+}
+
+.spinner-dots {
+  display: flex;
+  align-items: center;
+}
+
+.spinner-dots .dot {
+  width: 4px;
+  height: 4px;
+  background-color: #888;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: pulse 1.2s infinite;
+}
+
+.spinner-dots .dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.spinner-dots .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+/* 登出按钮样式 */
+.bili-logout-btn {
+  border-color: var(--bilibili-pink) !important;
+  color: var(--bilibili-pink) !important;
+  background: transparent;
+  transition: all 0.2s ease;
+  padding: 0.25rem 0.75rem;
+}
+
+.bili-logout-btn:hover {
+  background-color: var(--bilibili-pink) !important;
+  color: white !important;
+}
+
+/* 响应式导航切换按钮 */
+.bili-navbar-toggler {
+  border-color: rgba(251, 114, 153, 0.3) !important;
+}
+
+.bili-navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(251, 114, 153, 0.15) !important;
+}
+
+/* 响应式调整 */
+@media (max-width: 991.98px) {
+  .bili-navbar {
+    height: auto;
+    padding: 8px 0;
+  }
+  
+  .bili-nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0.2rem 0;
+  }
+  
+  .bili-login-status {
+    margin: 0.5rem 0;
+  }
+} 

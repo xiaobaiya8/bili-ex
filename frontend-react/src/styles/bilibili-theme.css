@@ -1,0 +1,497 @@
+/* B站风格主题 */
+:root {
+  --bilibili-pink: #FB7299;
+  --bilibili-blue: #23ADE5;
+  --bilibili-light-pink: #FBE2E5;
+  --bilibili-light-blue: #E3F1F8;
+  --bilibili-gray: #F1F2F3;
+  --bilibili-text: #61666D;
+  --bilibili-black: #18191C;
+  --bilibili-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --bilibili-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* 页面背景 - 修复滚动时的白色割裂问题 */
+html, body {
+  background-color: #F6F7F8 !important;
+  min-height: 100% !important;
+  height: 100% !important;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+/* 确保根元素也继承背景色 */
+#root {
+  background-color: #F6F7F8 !important;
+  min-height: 100% !important;
+}
+
+/* 为Bootstrap网格添加5个视频每行的布局 */
+/* 大屏幕上显示5个视频 */
+@media (min-width: 992px) {
+  .row {
+    --bs-gutter-x: 1.5rem;
+  }
+  
+  .row > .col-lg-2 {
+    flex: 0 0 auto;
+    width: 20% !important; /* 覆盖Bootstrap默认的col-lg-2宽度 */
+  }
+}
+
+/* 中等屏幕上显示4个视频 */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .row > .col-md-3 {
+    flex: 0 0 auto;
+    width: 25% !important;
+  }
+}
+
+/* 小屏幕上显示3个视频 */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .row > .col-sm-6 {
+    flex: 0 0 auto;
+    width: 33.33% !important;
+  }
+}
+
+/* 视频卡片样式 */
+.bili-video-card {
+  border-radius: 8px;
+  overflow: hidden;
+  border: none;
+  box-shadow: var(--bilibili-card-shadow);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.bili-video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--bilibili-hover-shadow);
+}
+
+.bili-video-cover {
+  position: relative;
+  overflow: hidden;
+}
+
+.bili-video-duration {
+  font-size: 0.7rem !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-radius: 4px !important;
+  padding: 0 4px !important;
+}
+
+.bili-video-title {
+  color: var(--bilibili-black);
+  font-weight: 500 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.4 !important;
+  max-height: calc(0.9rem * 1.4 * 2) !important; /* 精确计算两行的高度 */
+  min-height: calc(0.9rem * 1.4 * 2) !important; /* 固定高度 */
+  height: calc(0.9rem * 1.4 * 2) !important; /* 确保高度恰好为两行 */
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  text-overflow: ellipsis !important;
+  margin-bottom: 0.3rem !important;
+  position: relative !important;
+  background-color: white !important;
+  padding-bottom: 0 !important; /* 去除底部内边距 */
+}
+
+/* 添加一个伪元素完全覆盖可能露出的第三行文字 */
+.bili-video-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* 覆盖可能露出的一点点文字 */
+  background-color: white;
+  z-index: 1;
+}
+
+.bili-uploader-name {
+  color: var(--bilibili-text);
+  font-size: 0.75rem !important;
+}
+
+/* 视频统计信息样式 */
+.bili-video-stats {
+  color: var(--bilibili-text) !important;
+  font-size: 0.75rem !important;
+}
+
+.bili-stat-item {
+  font-size: 0.75rem !important;
+}
+
+/* 发布日期样式 */
+.bili-pubdate {
+  font-size: 0.7rem !important;
+  opacity: 0.85;
+  white-space: nowrap;
+}
+
+.bili-pubdate i {
+  font-size: 0.65rem !important;
+}
+
+.bili-action-btn {
+  color: var(--bilibili-text) !important;
+  transition: color 0.2s ease !important;
+}
+
+.bili-action-btn:hover {
+  color: var(--bilibili-pink) !important;
+}
+
+.bili-action-btn:disabled {
+  opacity: 0.5;
+}
+
+.bili-action-bar {
+  background-color: #FAFAFA !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 任务状态容器 */
+.task-status-container {
+  background: linear-gradient(to right, rgba(251, 114, 153, 0.8), rgba(251, 114, 153, 0.6)) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* 加载动画 */
+.spinner-border {
+  color: var(--bilibili-pink) !important;
+}
+
+/* 页面背景 */
+body {
+  background-color: #F6F7F8 !important;
+}
+
+/* 按钮样式 */
+.btn-primary {
+  background-color: var(--bilibili-pink) !important;
+  border-color: var(--bilibili-pink) !important;
+}
+
+.btn-primary:hover {
+  background-color: #e45c82 !important;
+  border-color: #e45c82 !important;
+}
+
+/* 进度条样式 */
+.progress-bar {
+  background-color: var(--bilibili-pink) !important;
+}
+
+/* 弹框播放按钮 */
+.video-play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  border-radius: 6px;
+}
+
+.bili-video-cover:hover .video-play-overlay {
+  opacity: 1;
+}
+
+.video-play-icon {
+  color: white;
+  font-size: 3rem;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.bili-video-cover:hover .video-play-icon {
+  transform: scale(1.1);
+}
+
+/* 筛选栏样式 */
+.filter-bar {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #fcfcfc !important;
+}
+
+.filter-bar .dropdown-toggle,
+.filter-bar .form-control,
+.filter-bar .input-group-text {
+  border-color: #e0e0e0;
+}
+
+.filter-bar .dropdown-toggle:hover,
+.filter-bar .dropdown-toggle:focus {
+  background-color: #f5f5f5;
+  border-color: var(--bilibili-pink);
+}
+
+.filter-bar .dropdown-toggle::after {
+  margin-left: auto;
+}
+
+.filter-bar .dropdown-item.active,
+.filter-bar .dropdown-item:active {
+  background-color: var(--bilibili-light-pink);
+  color: var(--bilibili-black);
+}
+
+.filter-bar .input-group:focus-within {
+  box-shadow: 0 0 0 0.2rem rgba(251, 114, 153, 0.25);
+}
+
+.filter-bar .form-control:focus {
+  border-color: var(--bilibili-pink);
+  box-shadow: none;
+}
+
+/* 新增样式 - B站风格卡片 */
+.bilibili-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bilibili-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.bili-card-header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px 20px;
+}
+
+.bili-header-icon {
+  color: var(--bilibili-pink);
+  font-size: 1.2rem;
+}
+
+/* 表单元素样式 */
+.bili-form-label {
+  font-weight: 500;
+  color: var(--bilibili-black);
+  margin-bottom: 8px;
+}
+
+.bili-form-input,
+.bili-form-textarea {
+  border-color: #e0e0e0;
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: all 0.2s ease;
+}
+
+.bili-form-input:focus,
+.bili-form-textarea:focus {
+  border-color: var(--bilibili-pink);
+  box-shadow: 0 0 0 0.2rem rgba(251, 114, 153, 0.15);
+}
+
+.bili-input-icon {
+  background-color: #f9f9f9;
+  border-color: #e0e0e0;
+  color: #666;
+}
+
+.bili-option-container {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9 !important;
+}
+
+.bili-option-check {
+  margin-bottom: 8px;
+}
+
+.option-icon {
+  color: var(--bilibili-pink);
+}
+
+/* 按钮样式增强 */
+.bili-submit-button {
+  padding: 10px 20px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.btn-outline-primary {
+  color: var(--bilibili-pink) !important;
+  border-color: var(--bilibili-pink) !important;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--bilibili-light-pink) !important;
+  color: var(--bilibili-pink) !important;
+}
+
+.btn-outline-primary:not(:disabled):active {
+  background-color: var(--bilibili-pink) !important;
+  color: white !important;
+}
+
+/* 帮助模态框样式 */
+.bili-modal .modal-content {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.bili-modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+}
+
+.bili-modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+}
+
+.bili-help-title {
+  color: var(--bilibili-black);
+  font-weight: 600;
+}
+
+.bili-step-list li {
+  padding: 6px 0;
+  color: var(--bilibili-text);
+}
+
+.bili-link {
+  color: var(--bilibili-pink);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bili-link:hover {
+  color: #e45c82;
+  text-decoration: underline;
+}
+
+.bili-help-image img {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.bili-help-image img:hover {
+  transform: scale(1.02);
+}
+
+kbd {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+/* 下拉菜单增强 */
+.bili-dropdown-toggle {
+  background-color: white !important;
+  border-color: #e0e0e0 !important;
+  padding: 8px 12px;
+}
+
+.bili-dropdown-toggle:hover,
+.bili-dropdown-toggle:focus {
+  background-color: #f8f9fa !important;
+  border-color: var(--bilibili-pink) !important;
+}
+
+.bili-dropdown-menu {
+  border-color: #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.bili-dropdown-item {
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+}
+
+.bili-dropdown-item:last-child {
+  margin-bottom: 0;
+}
+
+.bili-dropdown-item.active {
+  background-color: var(--bilibili-light-pink) !important;
+  color: var(--bilibili-black) !important;
+}
+
+.bili-dropdown-item:hover {
+  background-color: #f8f9fa !important;
+}
+
+/* 计数徽章 */
+.bili-count-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f2f5;
+  color: var(--bilibili-text);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+}
+
+/* 空状态图标 */
+.empty-state-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background-color: var(--bilibili-light-pink);
+  color: var(--bilibili-pink);
+  border-radius: 50%;
+  font-size: 2.5rem;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+/* 加载状态美化 */
+.spinner-border.text-primary {
+  color: var(--bilibili-pink) !important;
+}
+
+/* 警告框美化 */
+.alert-danger {
+  border-left: 4px solid #dc3545;
+  border-top: 1px solid rgba(220, 53, 69, 0.1);
+  border-right: 1px solid rgba(220, 53, 69, 0.1);
+  border-bottom: 1px solid rgba(220, 53, 69, 0.1);
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.alert-info {
+  border-left: 4px solid var(--bilibili-blue);
+  border-top: 1px solid rgba(35, 173, 229, 0.1);
+  border-right: 1px solid rgba(35, 173, 229, 0.1);
+  border-bottom: 1px solid rgba(35, 173, 229, 0.1);
+  background-color: rgba(35, 173, 229, 0.05);
+}
+
+/* 确保卡片内容也不会溢出 */
+.bili-video-info {
+  overflow: hidden !important;
+} 

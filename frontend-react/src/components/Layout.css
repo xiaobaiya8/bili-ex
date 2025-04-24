@@ -1,0 +1,24 @@
+/* 主布局容器 */
+.bili-layout {
+  background-color: #F6F7F8;
+}
+
+/* 主内容区域 - 添加顶部内边距以避免导航栏遮挡内容 */
+.bili-main-content {
+  padding-top: 65px; /* 导航栏高度 + 额外空间 */
+  min-height: calc(100vh - 56px); /* 减去导航栏高度 */
+  transition: padding-top 0.3s ease;
+}
+
+/* 页脚样式 */
+.bili-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 991.98px) {
+  .bili-main-content {
+    padding-top: 60px;
+  }
+} 
